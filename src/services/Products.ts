@@ -19,7 +19,7 @@ type DataTwoType = {
 };
 
 export const data = async () => {
-  const result = fetch('https://jsonplaceholder.typicode.com/users/1/todos')
+  const result = fetch('https://fakestoreapi.com/products')
     .then((response) => response.json())
     .then((json: DataTwoType[]) => json);
   return result;

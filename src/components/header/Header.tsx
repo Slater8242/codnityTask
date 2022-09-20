@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import './Header.module.css';
+import { Link } from '@mui/material';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 
@@ -26,10 +26,17 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ mb: 5 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Link href="https://www.google.com/">
+            <AdbIcon sx={{
+              display: { xs: 'flex', md: 'none' },
+              mr: 1,
+              color: '#fff',
+            }}
+            />
+          </Link>
           <Typography
             variant="h5"
             noWrap
@@ -48,7 +55,14 @@ const Header = () => {
           >
             Codnity
           </Typography>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Link href="https://www.google.com/">
+            <AdbIcon sx={{
+              display: { xs: 'none', md: 'flex' },
+              mr: 1,
+              color: 'white',
+            }}
+            />
+          </Link>
           <Typography
             variant="h6"
             noWrap

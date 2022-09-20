@@ -1,3 +1,4 @@
+import { Container } from '@mui/material';
 import Cards from '../../components/cards/Cards';
 import Layout from '../../components/layout/Layout';
 
@@ -6,9 +7,9 @@ const Homepage = () => {
 
   return (
     <Layout>
-      <div className="content">
+      <Container>
         <Cards />
-      </div>
+      </Container>
     </Layout>
   );
 };
