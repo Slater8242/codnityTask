@@ -6,28 +6,19 @@ const Footer = () => {
   const str = 'footer';
   return (
     <Box
+      component={str}
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        // minHeight: '100vh',
+        py: 3,
+        px: 2,
+        mt: 'auto',
+        backgroundColor: (theme) => theme.palette.grey[200],
       }}
     >
-      <Box
-        component="footer"
-        sx={{
-          py: 3,
-          px: 2,
-          mt: 'auto',
-          flexGrow: 1,
-          backgroundColor: (theme) => theme.palette.grey[200],
-        }}
-      >
-        <Container maxWidth="sm">
-          <Typography variant="body1">
-            My sticky footer can be found here.
-          </Typography>
-        </Container>
-      </Box>
+      <Container maxWidth="sm">
+        <Typography variant="body1">
+          My sticky footer can be found here.
+        </Typography>
+      </Container>
     </Box>
   );
 };

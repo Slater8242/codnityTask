@@ -1,3 +1,4 @@
+import Cards from '../../components/cards/Cards';
 import Layout from '../../components/layout/Layout';
 
 const Homepage = () => {
@@ -5,10 +6,9 @@ const Homepage = () => {
 
   return (
     <Layout>
-      {str}
-      {str}
-      {str}
-      {str}
+      <div className="content">
+        <Cards />
+      </div>
     </Layout>
   );
 };
