@@ -11,17 +11,10 @@ type DataType = {
   };
 };
 
-type DataTwoType = {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-};
-
 export const data = async () => {
   const result = fetch('https://fakestoreapi.com/products')
     .then((res) => res.json())
-    .then((json) => json);
+    .then((json: DataType[]) => json);
   return result;
 };
 export const limitedData = async (amount: number) => {

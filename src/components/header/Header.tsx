@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link as MuiLink } from '@mui/material';
-import AboutUs from '../about-us/AboutUs';
 
 const pages = ['Products', 'Pricing', 'About'];
 
@@ -28,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ mb: 5 }}>
+    <AppBar position="sticky" sx={{ mb: 5 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <MuiLink href="https://codnity.com/lv/">
