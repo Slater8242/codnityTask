@@ -16,10 +16,16 @@ const Footer = () => {
         backgroundColor: (theme) => theme.palette.grey[200],
         display: 'flex',
         justifyContent: 'space-between',
+        alignItems: 'center',
       }}
     >
-      <Box component="div" sx={{ display: 'flex', ml: 3 }}>
-        <AdbIcon sx={{ color: 'black' }} />
+      <Box
+        component="div"
+        sx={{ display: 'flex', ml: 3 }}
+      >
+        <Link href="https://codnity.com/lv/">
+          <AdbIcon sx={{ color: 'black' }} />
+        </Link>
         <Typography
           variant="body1"
           sx={{
@@ -31,6 +37,17 @@ const Footer = () => {
           }}
         >
           Codnity
+        </Typography>
+      </Box>
+      <Box
+        component="div"
+        sx={{ display: 'flex', ml: 3 }}
+      >
+        <Typography
+          variant="caption"
+          display="block"
+        >
+          &copy; Codnity, 2022. All rights reserved.
         </Typography>
       </Box>
       <Box

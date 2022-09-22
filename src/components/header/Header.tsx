@@ -1,3 +1,4 @@
+import { Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,9 +11,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from '@mui/material';
+import { Link as MuiLink } from '@mui/material';
+import AboutUs from '../about-us/AboutUs';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Pricing', 'About'];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -29,14 +31,14 @@ const Header = () => {
     <AppBar position="static" sx={{ mb: 5 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link href="https://www.google.com/">
+          <MuiLink href="https://codnity.com/lv/">
             <AdbIcon sx={{
               display: { xs: 'flex', md: 'none' },
               mr: 1,
               color: '#fff',
             }}
             />
-          </Link>
+          </MuiLink>
           <Typography
             variant="h5"
             noWrap
@@ -55,14 +57,14 @@ const Header = () => {
           >
             Codnity
           </Typography>
-          <Link href="https://www.google.com/">
+          <MuiLink href="https://codnity.com/lv/">
             <AdbIcon sx={{
               display: { xs: 'none', md: 'flex' },
               mr: 1,
               color: 'white',
             }}
             />
-          </Link>
+          </MuiLink>
           <Typography
             variant="h6"
             noWrap
@@ -117,7 +119,14 @@ const Header = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link
+                      to={`/${page}`}
+                      style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                      {page}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -135,7 +144,12 @@ const Header = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link
+                  to={`/${page}`}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>

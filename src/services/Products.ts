@@ -20,8 +20,8 @@ type DataTwoType = {
 
 export const data = async () => {
   const result = fetch('https://fakestoreapi.com/products')
-    .then((response) => response.json())
-    .then((json: DataTwoType[]) => json);
+    .then((res) => res.json())
+    .then((json) => json);
   return result;
 };
 export const limitedData = async (amount: number) => {

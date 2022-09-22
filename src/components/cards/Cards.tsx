@@ -4,9 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {
-  Button, CardActionArea, CardActions, Grid,
+  CardActions,
+  Grid,
 } from '@mui/material';
-import { limitedData } from '../../services/Products';
+import { limitedData, data } from '../../services/Products';
 
 const Cards = () => {
   type DataType = {
@@ -29,6 +30,7 @@ const Cards = () => {
     // data().then((item) => setProducts(item));
   }, [setProducts]);
 
+  // products?.forEach((item) => console.log(item));
   return (
     <Grid
       container
@@ -56,11 +58,14 @@ const Cards = () => {
               <Typography gutterBottom variant="h5" component="div">
                 {product.title}
               </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                {product.category}
+              </Typography>
               <Typography variant="body2" color="text.secondary">
                 {product.description}
               </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions sx={{ justifyContent: 'space-between' }}>
               <Typography
                 sx={{
                   px: 1,
@@ -71,6 +76,18 @@ const Cards = () => {
               >
                 {product.price}
                 &nbsp;$
+              </Typography>
+              <Typography
+                sx={{
+                  px: 1,
+                  py: 2,
+                  color: '#000',
+                }}
+                component="p"
+              >
+                Rating &nbsp;
+                {product.rating?.rate}
+                &nbsp; ⭐
               </Typography>
             </CardActions>
           </Card>
