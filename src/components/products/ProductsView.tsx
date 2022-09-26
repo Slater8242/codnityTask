@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { limitedData } from '../../services/Products';
 
-const Cards = () => {
+const ProductsView = () => {
   type DataType = {
     id: number;
     title?: string;
@@ -26,7 +26,7 @@ const Cards = () => {
   const [products, setProducts] = useState<DataType[]>();
 
   useEffect(() => {
-    limitedData(5).then((item) => setProducts(item));
+    limitedData(20).then((item) => setProducts(item));
   }, [setProducts]);
 
   return (
@@ -176,4 +176,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default ProductsView;

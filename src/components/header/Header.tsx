@@ -11,9 +11,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link as MuiLink } from '@mui/material';
 
-const pages = ['Products', 'Pricing', 'About'];
+const pages = ['Products', 'Weather', 'About'];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -30,14 +29,14 @@ const Header = () => {
     <AppBar position="sticky" sx={{ mb: 5 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <MuiLink href="https://codnity.com/lv/">
+          <Link to="/">
             <AdbIcon sx={{
               display: { xs: 'flex', md: 'none' },
               mr: 1,
               color: '#fff',
             }}
             />
-          </MuiLink>
+          </Link>
           <Typography
             variant="h5"
             noWrap
@@ -54,21 +53,22 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            Codnity
+            <Link to="/">
+              Codnity
+            </Link>
           </Typography>
-          <MuiLink href="https://codnity.com/lv/">
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
             <AdbIcon sx={{
               display: { xs: 'none', md: 'flex' },
               mr: 1,
               color: 'white',
             }}
             />
-          </MuiLink>
+          </Link>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -79,7 +79,9 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            Codnity
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+              Codnity
+            </Link>
           </Typography>
 
           <Box sx={{
