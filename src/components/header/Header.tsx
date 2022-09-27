@@ -41,7 +41,6 @@ const Header = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -53,7 +52,7 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
               Codnity
             </Link>
           </Typography>

@@ -8,6 +8,7 @@ import {
   Grid,
   TextField,
   Button,
+  Box,
 } from '@mui/material';
 import { weatherData, ipLocation } from '../../services/WeatherData';
 
@@ -82,8 +83,17 @@ const WeatherView = () => {
       .then((weather) => setDataWeather(weather));
   };
 
+  function dateFormat(inputDate:string) {
+    const [year, month, day] = inputDate.split('-');
+
+    return `${day}-${month}-${year}`;
+  }
+
   return (
     <>
+      <Typography variant="h3" component="div" textAlign="center" mb={3}>
+        16 Day Weather Forecast
+      </Typography>
       <Grid container justifyContent="center" mb={5}>
         <form onSubmit={handleSubmit}>
           <Grid item display="flex">
@@ -103,7 +113,6 @@ const WeatherView = () => {
         mb={5}
         sx={{
           display: { xs: 'none', md: 'flex' },
-          justifyContent: 'center',
         }}
       >
         {dataWeather?.data.map((city) => (
@@ -111,9 +120,9 @@ const WeatherView = () => {
             item
             key={city.valid_date}
             lg={3}
+            md={4}
             sm={6}
             display="flex"
-            justifyContent="center"
           >
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea>
@@ -136,7 +145,92 @@ const WeatherView = () => {
                   <Typography gutterBottom variant="h5" component="div">
                     {dataWeather?.city_name}
                     &nbsp;
-                    {dataWeather?.country_code}
+                    <Box
+                      sx={{ height: 15 }}
+                      component="img"
+                      src={`https://countryflagsapi.com/png/${dataWeather?.country_code}`}
+                      alt={dataWeather?.country_code}
+                    />
+                  </Typography>
+                  <Typography gutterBottom variant="body2" component="div">
+                    Date:&nbsp;
+                    {dateFormat(city.datetime)}
+                  </Typography>
+                  <ul style={{ padding: 'unset', listStyleType: 'none' }}>
+                    <li>
+                      Max temp.:
+                      &nbsp;
+                      {city.max_temp}
+                      &#8451;
+                    </li>
+                    <li>
+                      Min temp.:
+                      &nbsp;
+                      {city.min_temp}
+                      &#8451;
+                    </li>
+                    <li>
+                      Wind speed:
+                      &nbsp;
+                      {city.wind_spd}
+                      &nbsp;
+                      Km/H
+                    </li>
+                  </ul>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+      <Grid
+        container
+        spacing={2}
+        mb={5}
+        sx={{
+          display: { xs: 'flex', md: 'none' },
+        }}
+      >
+        {dataWeather?.data.map((city) => (
+          <Grid
+            item
+            key={city.valid_date}
+            lg={3}
+            md={4}
+            sm={6}
+            display="flex"
+          >
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <Grid item display="flex">
+                  <CardMedia
+                    sx={{ objectFit: 'contain' }}
+                    component="img"
+                    height="140"
+                    image={`https://www.weatherbit.io/static/img/icons/${city.weather.icon}.png`}
+                    alt={city.weather.description}
+                  />
+                  <Typography variant="h5" gutterBottom textAlign="center">
+                    {city.temp}
+                    &#8451;
+                    &nbsp;
+                    {city.weather.description}
+                  </Typography>
+                </Grid>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {dataWeather?.city_name}
+                    &nbsp;
+                    <Box
+                      sx={{ height: 15 }}
+                      component="img"
+                      src={`https://countryflagsapi.com/png/${dataWeather?.country_code}`}
+                      alt={dataWeather?.country_code}
+                    />
+                  </Typography>
+                  <Typography gutterBottom variant="body2" component="div">
+                    Date:&nbsp;
+                    {dateFormat(city.datetime)}
                   </Typography>
                   <ul style={{ padding: 'unset', listStyleType: 'none' }}>
                     <li>
